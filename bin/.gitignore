@@ -1,0 +1,17 @@
+HELP.md
+target/
+.mvn/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/
+
+out/
+
+.DS_Store
+

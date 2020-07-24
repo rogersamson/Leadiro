@@ -1,0 +1,14 @@
+C:\Leadiro\leadiro-starter\target\generated-sources\groovy-stubs\main\com\leadiro\starter\service\starter\dao\StarterMapper.java
+C:\Leadiro\leadiro-starter\src\main\java\com\leadiro\starter\ApplicationConfiguration.java
+C:\Leadiro\leadiro-starter\src\main\java\com\leadiro\starter\controller\HealthController.java
+C:\Leadiro\leadiro-starter\src\main\java\com\leadiro\starter\Application.java
+C:\Leadiro\leadiro-starter\src\main\java\com\leadiro\starter\controller\auth\WebSecurityConfig.java
+C:\Leadiro\leadiro-starter\src\main\java\com\leadiro\starter\service\starter\ConcreteStarterService.java
+C:\Leadiro\leadiro-starter\src\main\java\com\leadiro\starter\service\starter\dto\Starter.java
+C:\Leadiro\leadiro-starter\src\main\java\com\leadiro\starter\service\StarterService.java
+C:\Leadiro\leadiro-starter\src\main\java\com\leadiro\starter\controller\auth\InvalidTokenException.java
+C:\Leadiro\leadiro-starter\src\main\java\com\leadiro\starter\controller\auth\Auth0JwtDecoder.java
+C:\Leadiro\leadiro-starter\src\main\java\com\leadiro\starter\controller\auth\JwtBearerTokenAuthenticationFilter.java
+C:\Leadiro\leadiro-starter\target\generated-sources\groovy-stubs\main\com\leadiro\starter\controller\StarterController.java
+C:\Leadiro\leadiro-starter\src\main\java\com\leadiro\starter\controller\auth\AuthAccount.java
+C:\Leadiro\leadiro-starter\src\main\java\com\leadiro\starter\controller\auth\JwtDecoder.java
