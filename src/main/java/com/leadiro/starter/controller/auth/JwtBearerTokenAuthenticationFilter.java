@@ -22,41 +22,43 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 @Component
 @Slf4j
 @SuppressWarnings("NullableProblems")
-public class JwtBearerTokenAuthenticationFilter extends OncePerRequestFilter {
+public class JwtBearerTokenAuthenticationFilter 
+//	extends OncePerRequestFilter 
+	{
     @Autowired private JwtDecoder decoder;
 
-    @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException {
-        try {
-            String token = defaultString(request.getHeader("Authorization"), request.getParameter("Authorization"));
-            log.trace("Filtering endpoint {} {} token: {}", request.getMethod(), request.getRequestURI(), token == null ? "none" : StringUtils.left(token, 20) + "...");
-            if (token != null && token.startsWith("Bearer ")) {
-                //Remove the Bearer from the start of the token
-                token = StringUtils.substringAfter(token, " ");
-            }
-            try {
-                Authentication authorised = decoder.getAuthentication(token);
-                SecurityContextHolder.getContext().setAuthentication(authorised);
-                //Add the email to the logging context
-                if (authorised != null) {
-                    AuthAccount account = (AuthAccount) authorised.getPrincipal();
-                    MDC.put("email", account.getEmail());
-                }
-                else {
-                    MDC.put("email", "anonymous");
-                }
-            }
-            catch (InvalidTokenException e) {
-                //Set the response status to unauthorised
-                log.warn("Invalid token for access to {}: {}", request.getRequestURI(), e.getMessage());
-            }
-            filterChain.doFilter(request, response);
-        }
-        catch (Exception e) {
-            log.error("Error filtering request", e);
-            throw new ServletException(e);
-        }
-    }
+//    @Override
+//    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException {
+//        try {
+//            String token = defaultString(request.getHeader("Authorization"), request.getParameter("Authorization"));
+//            log.trace("Filtering endpoint {} {} token: {}", request.getMethod(), request.getRequestURI(), token == null ? "none" : StringUtils.left(token, 20) + "...");
+//            if (token != null && token.startsWith("Bearer ")) {
+//                //Remove the Bearer from the start of the token
+//                token = StringUtils.substringAfter(token, " ");
+//            }
+//            try {
+//                Authentication authorised = decoder.getAuthentication(token);
+//                SecurityContextHolder.getContext().setAuthentication(authorised);
+//                //Add the email to the logging context
+//                if (authorised != null) {
+//                    AuthAccount account = (AuthAccount) authorised.getPrincipal();
+//                    MDC.put("email", account.getEmail());
+//                }
+//                else {
+//                    MDC.put("email", "anonymous");
+//                }
+//            }
+//            catch (InvalidTokenException e) {
+//                //Set the response status to unauthorised
+//                log.warn("Invalid token for access to {}: {}", request.getRequestURI(), e.getMessage());
+//            }
+//            filterChain.doFilter(request, response);
+//        }
+//        catch (Exception e) {
+//            log.error("Error filtering request", e);
+//            throw new ServletException(e);
+//        }
+//    }
 
 }
 
