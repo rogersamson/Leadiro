@@ -19,7 +19,7 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
 /**
  * Decode a JWT token held in the Authorization header and place the associated Authentication in the SecurityContextHolder.
  */
-@Component
+//@Component  //Commented to disable JWT Filter
 @Slf4j
 @SuppressWarnings("NullableProblems")
 public class JwtBearerTokenAuthenticationFilter extends OncePerRequestFilter {

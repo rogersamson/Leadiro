@@ -16,10 +16,18 @@ mvn package -DskipTests
 
 repo=starter
 cluster=834254992668
+port=8090
+
+#Remove existing container and images
+docker rm -f $(docker ps -a -q); 
+docker rmi $(docker images -q ${repo}:latest)
 
 #Build the container
 docker build -t ${repo}:latest .
-docker tag ${repo}:latest ${cluster}.dkr.ecr.us-east-1.amazonaws.com/${repo}:latest
+#docker tag ${repo}:latest ${cluster}.dkr.ecr.us-east-1.amazonaws.com/${repo}:latest
+
+#Run Container
+docker run -d -p ${port}:${port} ${repo}:latest
 
 #Auth against the repository as the current AWS user and push the container
 #aws --region us-east-1 ecr get-login-password | docker login --username AWS --password-stdin ${cluster}.dkr.ecr.us-east-1.amazonaws.com

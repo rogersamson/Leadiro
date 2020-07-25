@@ -5,8 +5,8 @@ import com.leadiro.starter.service.starter.dto.PostCode;
 
 public interface ValidateService {
 
-	Email validateEmail(String email) ;
+	Email validateEmail(String email) throws Exception ;
 
-	PostCode validatePostCode(String postcode) ;
+	PostCode validatePostCode(String postcode) throws Exception ;
 
 }
