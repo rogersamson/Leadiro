@@ -1,12 +1,9 @@
-package com.leadiro.starter.service.starter;
+package com.leadiro.starter.utility;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import com.leadiro.starter.utility.NameBuilder;
-
 
 @SpringBootTest
 class NameBuilderTest {
