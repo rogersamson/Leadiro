@@ -1,4 +1,4 @@
-package com.leadiro.starter.service.starter;
+package com.leadiro.starter.utility;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
