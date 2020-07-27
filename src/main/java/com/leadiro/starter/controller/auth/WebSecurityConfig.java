@@ -17,7 +17,8 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @Slf4j
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-//    @Autowired private JwtBearerTokenAuthenticationFilter jwtFilter;
+//    @Autowired 
+//    private JwtBearerTokenAuthenticationFilter jwtFilter; //Commented to disable JWT Filter
 
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
@@ -43,6 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     
     @Override
 	protected void configure(HttpSecurity http) throws Exception {
+    	log.debug("Configuring web security");
 		http.csrf()
 			.disable()
 			.authorizeRequests()
