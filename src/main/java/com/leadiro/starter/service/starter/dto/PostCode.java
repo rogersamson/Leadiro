@@ -14,4 +14,8 @@ public class PostCode {
 	private String cleanCharacter(String input) {
 		return input.replace("\"", "");
 	}
+	
+	public PostCode() {
+		
+	}
 }
