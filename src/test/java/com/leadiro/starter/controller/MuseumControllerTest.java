@@ -5,7 +5,6 @@ import static org.junit.Assert.assertNotNull;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;
@@ -36,6 +35,16 @@ public class MuseumControllerTest extends AbstractTest {
 		String content = mvcResult.getResponse().getContentAsString();
 		Book[] books = super.mapFromJson(content, Book[].class);
 		assertNotNull(books);		
+	}
+
+	@Test
+	public void testSearchByKeywords_InvalidKeyword() throws Exception {
+		String uri = "/museum";
+		mvc.perform(
+				MockMvcRequestBuilders.get(uri).
+				param("keyword","rogersamson").
+				accept(MediaType.APPLICATION_JSON_VALUE))
+				.andExpect(status().isNotFound());
 	}
 
 	@Test
@@ -108,6 +117,16 @@ public class MuseumControllerTest extends AbstractTest {
 	}
 	
 	@Test
+	public void testValidateEmail_InvalidEmail() throws Exception {
+		String uri = "/validate/email";
+		mvc.perform(
+				MockMvcRequestBuilders.get(uri).
+				param("email","rogelio.samson@gmail").
+				accept(MediaType.APPLICATION_JSON_VALUE))
+				.andExpect(status().isBadRequest() );
+	}
+	
+	@Test
 	public void testProcessName_ValidName() throws Exception {
 		String uri = "/parse/name";
 		MvcResult mvcResult = mvc.perform(
@@ -123,5 +142,15 @@ public class MuseumControllerTest extends AbstractTest {
 		assertNotNull(name);
 		assertEquals("NAME : Roger Samson", "Roger", name.getFirst());
 		assertEquals("NAME : Roger Samson", "Samson", name.getLast());
+	}
+	
+	@Test
+	public void testProcessName_InvalidName() throws Exception {
+		String uri = "/parse/name";
+		mvc.perform(
+				MockMvcRequestBuilders.get(uri).
+				param("name","Roger -").
+				accept(MediaType.APPLICATION_JSON_VALUE))
+				.andExpect(status().isBadRequest() );
 	}
 }

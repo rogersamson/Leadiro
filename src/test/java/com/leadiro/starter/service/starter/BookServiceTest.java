@@ -19,7 +19,7 @@ public class BookServiceTest {
 	private BookService bookService;
 
 	@Test
-	public void testSearchByKeywords_ValidKeyword() {
+	public void testSearchByKeywords_ValidKeyword() throws Exception {
 		Book[] resultBook = bookService.searchByKeywords(new String[] { "india", "coin" });
 		Assert.assertNotNull(resultBook);
 		log.info("RESULTS : [{}]", (Object) resultBook);
@@ -34,7 +34,7 @@ public class BookServiceTest {
 	}
 
 	@Test
-	public void testSearchByID_ValidId() {
+	public void testSearchByID_ValidId() throws Exception {
 		Book resultBook = bookService.searchByID("items", "1368212");
 		Assert.assertNotNull(resultBook);
 		log.info("RESULTS : [{}]", (Object) resultBook);

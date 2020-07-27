@@ -4,6 +4,6 @@ import com.leadiro.starter.service.starter.dto.Name;
 
 public interface NameService {
 
-	Name process(String name);
+	Name process(String name) throws Exception;
 
 }

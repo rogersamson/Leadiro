@@ -15,21 +15,21 @@ class NameServiceTest {
 	private NameService nameService;
 
 	@Test
-	public void simple() {
+	public void simple() throws Exception {
 		Assert.assertEquals("Leadiro User", new Name("Leadiro", "User"), nameService.process("Leadiro User"));
 		Assert.assertEquals("User, Leadiro", new Name("Leadiro", "User"), nameService.process("User, Leadiro"));
 		Assert.assertEquals("leadiro     User", new Name("Leadiro", "User"), nameService.process(" leadiro     User "));
 	}
 
 	@Test
-	public void surname() {
+	public void surname() throws Exception {
 		// With Prefix Surname
 		Assert.assertEquals("Leadiro John Del User", new Name("Leadiro", "Del User"),
 				nameService.process("Leadiro John Del User"));
 	}
 
 	@Test
-	public void remove() {
+	public void remove() throws Exception {
 		Assert.assertEquals("Csar Leadiro User", new Name("Leadiro", "User"), nameService.process("Csar Leadiro User"));
 		Assert.assertEquals("Dr Leadiro User", new Name("Leadiro", "User"), nameService.process("Dr Leadiro User"));
 		Assert.assertEquals("D.R. Leadiro User", new Name("Leadiro", "User"), nameService.process("D.R. Leadiro User"));
@@ -59,13 +59,13 @@ class NameServiceTest {
 	}
 
 	@Test
-	public void replace() {
+	public void replace() throws Exception {
 		Assert.assertEquals("Leadiro User II.", new Name("Leadiro", "User"), nameService.process("Leadiro User II."));
 		Assert.assertEquals("Leadiro User Jr.", new Name("Leadiro", "User"), nameService.process("Leadiro User Jr."));
 	}
 
 	@Test
-	public void suffix() {
+	public void suffix() throws Exception {
 		Assert.assertEquals("Leadiro User Dip Ed", new Name("Leadiro", "User"),
 				nameService.process("Leadiro User Dip Ed"));
 		Assert.assertEquals("Leadiro User DipEd", new Name("Leadiro", "User"),
@@ -79,7 +79,7 @@ class NameServiceTest {
 	}
 
 	@Test
-	public void badNames_Success() {
+	public void badNames_Success() throws Exception {
 		Assert.assertEquals("~~~ Leadiro User ~~~", new Name("Leadiro", "User"),
 				nameService.process("~~~ Leadiro User ~~~"));
 		Assert.assertEquals("~~~ Leadiro J User ~~~", new Name("Leadiro", "User"),
@@ -87,7 +87,7 @@ class NameServiceTest {
 	}
 
 	@Test
-	public void capitalisation() {
+	public void capitalisation() throws Exception {
 		Assert.assertEquals("HEMANT AHIRKAR", new Name("Hemant", "Ahirkar"), nameService.process("HEMANT AHIRKAR"));
 		Assert.assertEquals("hemant ahirkar", new Name("Hemant", "Ahirkar"), nameService.process("hemant ahirkar"));
 		// Invalid Expected Name
@@ -96,7 +96,7 @@ class NameServiceTest {
 	}
 
 	@Test
-	public void nonAlpha() {
+	public void nonAlpha() throws Exception {
 		Assert.assertEquals(new Name("Hemant", "Ahirkar"), nameService.process("'HEMANT AHIRKAR'"));
 		Assert.assertEquals(new Name("Hemant", "Ahirkar"), nameService.process("-hemant ahirkar"));
 	}

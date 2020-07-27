@@ -18,7 +18,7 @@ public class ValidateServiceTest {
 	private ValidateService validateService;
 
 	@Test
-	public void testValidateEmail_ValidEmail() {
+	public void testValidateEmail_ValidEmail() throws Exception {
 		Email expectedEmail = new Email();
 		expectedEmail.setEmail("rogelio.samson@gmail.com");
 		expectedEmail.setValid(true);
@@ -37,7 +37,7 @@ public class ValidateServiceTest {
 	}
 
 	@Test
-	public void validatePostCode_ValidPostCode() {
+	public void validatePostCode_ValidPostCode() throws Exception {
 		PostCode expectedPostCode = new PostCode("London", "EC2Y 9DT");
 		PostCode resultPostCode = validateService.validatePostCode("EC2Y9DT");
 		Assert.assertNotNull(resultPostCode);
